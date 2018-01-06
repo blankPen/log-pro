@@ -1,18 +1,18 @@
 {
   "name": "log-pro",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
     "eslint": "eslint ./src",
     "build": "babel ./src -d ./lib",
-    "watch": "babel watch ./src"
+    "watch": "babel --watch ./src -d ./lib"
   },
   "files": [
     "lib",
     "README.md"
   ],
-  "author": "zhen.peng",
+  "author": "pengzhen",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "colors": "^1.1.2",
-    "prompt": "^1.0.0"
+    "inquirer": "^4.0.2"
   }
 }

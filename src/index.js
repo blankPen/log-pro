@@ -16,7 +16,7 @@ const COLORS = {
   ERROR: 'red',
 };
 const typeLog = (type, ...args) => log.apply(this, args.map(str => str[COLORS[type]]));
-export default class Log {
+class Log {
   info = (...args) => typeLog('INFO', ...args)
   warn = (...args) => typeLog('WARN', ...args)
   success = (...args) => typeLog('SUCCESS', ...args)
@@ -96,8 +96,13 @@ export default class Log {
       num += 1;
     }, duration);
     return {
-      done: () => clearInterval(id),
+      done: () => {
+        stream.clearLine();
+        stream.cursorTo(0);
+        clearInterval(id);
+      },
     };
   }
 }
 
+export default new Log();
