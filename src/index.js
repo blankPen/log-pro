@@ -15,8 +15,9 @@ const COLORS = {
   SUCCESS: 'green',
   ERROR: 'red',
 };
-const typeLog = (type, ...args) => log.apply(this, args.map(str => str[COLORS[type]]));
+const typeLog = (type, ...args) => log.apply(this, args.map(str => (typeof str === 'string' ? str[COLORS[type]] : str)));
 class Log {
+  log = log
   info = (...args) => typeLog('INFO', ...args)
   warn = (...args) => typeLog('WARN', ...args)
   success = (...args) => typeLog('SUCCESS', ...args)
